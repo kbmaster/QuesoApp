@@ -106,36 +106,6 @@ class QuesoMain extends LitElement {
           }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   infoCheeseClose(e) {
           this.showCheeseData = false;
           this.showCheeseCatalog();
