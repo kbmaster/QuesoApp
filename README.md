@@ -1,1 +1,3 @@
-Aplicacion de estilos basicos usando get styles
+-Listado de quesos 
+-Operacion remover
+-Operacion Info
