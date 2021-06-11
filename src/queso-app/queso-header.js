@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit-element';
+import './queso-ctrlbar.js';
 
 class QuesoHeader extends LitElement {
 	
@@ -18,6 +19,7 @@ class QuesoHeader extends LitElement {
                           <div class="container-fluid">
                             <div class="navbar-header">
                               <a class="navbar-brand" href="">Queso APP</a>	
+			      <queso-ctrlbar></queso-ctrl-bar> 	
                             </div>
                         </div>
                         </nav>	

@@ -33,6 +33,18 @@ class QuesoApp extends LitElement {
 	`;
   }
   
+  newCheese(e) {
+	  console.log("newCheese en QuesoApp");
+	  console.log(this.shadowRoot.querySelector("queso-main").showCheeseData);	  
+	  this.shadowRoot.querySelector("queso-main").showCheeseData = true; 	  
+	  console.log(this.shadowRoot.querySelector("queso-main").showCheeseData);	  
+  }
+  
+  cheesesUpdated(e) {
+	  console.log("cheesesUpdated en QuesoApp");
+	  console.log("Enviando quesos a queso-sidebar");
+	  this.shadowRoot.querySelector("queso-sidebar").cheeses = e.detail.cheeses;
+  }
 }
 
 customElements.define('queso-app', QuesoApp)

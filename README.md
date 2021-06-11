@@ -1,1 +1,1 @@
-Incluye listado de quesos (ajax) y operacion de remover
+Aplicacion de estilos basicos usando get styles
