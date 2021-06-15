@@ -34,7 +34,8 @@ class QuesoApp extends LitElement {
   }
   
   newCheese(e) {
-	  this.shadowRoot.querySelector("queso-main").showCheeseData = true; 	  
+	//this.shadowRoot.querySelector("queso-main").showCheeseData=true;  
+	this.shadowRoot.querySelector("queso-main").showCheeseForm(true); 	  
   }
   
 }

@@ -88,6 +88,10 @@ class QuesoMain extends LitElement {
           );
   }
 
+
+
+
+
   infoCheese(e) {
 	  let chosenCheese = this.cheeses.filter(
                 cheese => cheese.name == e.detail.name
@@ -97,19 +101,19 @@ class QuesoMain extends LitElement {
           this.showCheeseForm();
   }
 
-  showCheeseForm(newCheese) {
-          this.shadowRoot.getElementById("quesoFicha").classList.remove("d-none");
-          this.shadowRoot.getElementById("cheeseCatalog").classList.add("d-none");
-
-          if (newCheese) {
-                  this.shadowRoot.getElementById("quesoFicha").newCheese = true;
-          }
-  }
-
   infoCheeseClose(e) {
           this.showCheeseData = false;
           this.showCheeseCatalog();
   }	  
+
+
+
+  showCheeseForm(newCheese) {
+          this.shadowRoot.getElementById("quesoFicha").classList.remove("d-none");
+          this.shadowRoot.getElementById("cheeseCatalog").classList.add("d-none");
+
+          if (newCheese) this.shadowRoot.getElementById("quesoFicha").newCheese = true;
+  }
 
 
   showCheeseCatalog() {
@@ -123,49 +127,20 @@ class QuesoMain extends LitElement {
 
 
 
-
-
-
-
-
-
-
-
-
-	
-    
-  /**
   updated(changedProperties) {
-	  console.log("updated");
-	  console.log(changedProperties);
-	  if (changedProperties.has("showCheeseData")) {
-		  console.log("Ha cambiado el valor de la propiedad showCheeseForm en queso-main");		  
-		  if (this.showCheeseData) {
-			  this.showCheeseForm(true);			  
-		  } else {
-			  this.showCheeseCatalog();
-		  }
-	  }
+
+	//if(changedProperties.has("showCheeseData") && this.showCheeseData) this.showCheeseForm(true);		
 	  
-	  if (changedProperties.has("cheeses")) {
-		  console.log("Ha cambiado el valor de la propiedad cheeses en queso-main");
-		  this.dispatchEvent(new CustomEvent("cheeses-updated", {
-				detail: {
-					cheeses: this.cheeses
-				}
-			  }
-			)
-		  )
-	  }
   }
   
+
+
+
   
   infoCheeseStore(e) {
-	  console.log("infoCheeseStore");
-	  console.log("Se va a almacenar un queso");
-	  console.log(e.detail.cheese);
-	  
-	  console.log(this.cheeses);
+
+	console.log("store cheese");
+        console.log(e.detail.cheese);
 	  
 	  let indexOfCheese = this.cheeses.findIndex(cheese => cheese.name === e.detail.cheese.name);	  
 	  if (indexOfCheese >= 0) {
@@ -174,14 +149,13 @@ class QuesoMain extends LitElement {
 		  this.cheeses.push(e.detail.cheese);
 	  }	  	  
 	  
-	  console.log(this.cheeses);	  	 	  	  
 	  // Hablar de esto durante el proceso de generación del botón de guardar, si no se actualiza el array entero
 	  // no se llama a la función y push no genera un nuevo array.	  	  
 	  this.requestUpdate();
 	  
 	  this.showCheeseCatalog();
   }
-**/
+
   
 }
 
