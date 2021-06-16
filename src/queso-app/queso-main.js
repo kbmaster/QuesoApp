@@ -2,6 +2,7 @@ import { LitElement, html,css } from 'lit-element';
 import './queso-ficha-plantilla.js';
 import './queso-sidebar.js';
 import './queso-ficha.js';
+import './queso-confirm.js'
 
 class QuesoMain extends LitElement {
 	
@@ -40,7 +41,7 @@ class QuesoMain extends LitElement {
 								name="${cheese.name}" 
 								.image="${cheese.image}" 
 								recommended="${cheese.recommended}"
-								@delete-cheese=${this.deleteCheese}
+								@delete-cheese=${this.confirmCheese}
 								@info-cheese=${this.infoCheese}							
 								>
 						</queso-ficha-plantilla>
@@ -55,6 +56,9 @@ class QuesoMain extends LitElement {
 					@info-cheese-close=${this.infoCheeseClose}
 					@info-cheese-store=${this.infoCheeseStore}
 				></queso-ficha>
+
+				<queso-confirm class="col-md-8 col-sm-10 mt-5  p-0 fixed-top"></queso-confirm>
+
 			</div>
 		</main>
 	`;
@@ -81,16 +85,23 @@ class QuesoMain extends LitElement {
    }
 
 
-  deleteCheese(e) {
-          console.log("deleteCheese en queso-main");
-          console.log("Se va a borrar el queso de nombre " + e.detail.name);
+  confirmCheese(e) {
+
+	let dialog=this.shadowRoot.querySelector("queso-confirm");
+	dialog.text="Desea borar el queso "+e.detail.name+"?";
+	dialog.show();
+	dialog.confirm=this.deleteCheese.bind(this,e);
+  }
+	
+   
+  deleteCheese(e){ 	
 
           this.cheeses = this.cheeses.filter(
                 cheese => cheese.name != e.detail.name
           );
 
 	this.cheeseCount();		
-
+	this.shadowRoot.querySelector("queso-confirm").close();
   }
 
 
