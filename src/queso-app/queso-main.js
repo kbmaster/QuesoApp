@@ -72,6 +72,8 @@ class QuesoMain extends LitElement {
                 this.cheeses = APIResponse.cheeses;
             }
 
+	    this.cheeseCount();	
+
         }.bind(this);
 
         xhr.open("GET", "http://localhost:8000/data/quesos.json");
@@ -86,10 +88,10 @@ class QuesoMain extends LitElement {
           this.cheeses = this.cheeses.filter(
                 cheese => cheese.name != e.detail.name
           );
+
+	this.cheeseCount();		
+
   }
-
-
-
 
 
   infoCheese(e) {
@@ -154,8 +156,14 @@ class QuesoMain extends LitElement {
 	  this.requestUpdate();
 	  
 	  this.showCheeseCatalog();
+	  this.cheeseCount();
   }
 
+
+  cheeseCount()
+  {
+	this.dispatchEvent(new CustomEvent("cheese-count",{ "detail": {"count": this.cheeses.length}}));
+  }
   
 }
 

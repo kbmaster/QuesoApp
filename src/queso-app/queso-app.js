@@ -25,7 +25,7 @@ class QuesoApp extends LitElement {
 			</div>
 			<div class="row mr-3"><!--El m para que no se rompan los gutters el tema-->
 				<queso-sidebar class="col-2" @new-cheese="${this.newCheese}"></queso-sidebar>
-				<queso-main @cheeses-updated=${this.cheesesUpdated} class="col-10"></queso-main>
+				<queso-main @cheese-count=${this.cheeseCount} class="col-10"></queso-main>
 			</div>			
 			<div>
 				<queso-footer class=" w-100 text-secondary text-center"></queso-footer>
@@ -36,6 +36,12 @@ class QuesoApp extends LitElement {
   newCheese(e) {
 	//this.shadowRoot.querySelector("queso-main").showCheeseData=true;  
 	this.shadowRoot.querySelector("queso-main").showCheeseForm(true); 	  
+  }
+
+  cheeseCount(e)
+  {
+	console.log(e.detail);
+	this.shadowRoot.querySelector("queso-header").shadowRoot.querySelector("queso-ctrlbar").count=e.detail.count;
   }
   
 }
