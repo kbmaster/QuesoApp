@@ -8,6 +8,17 @@ class QuesoConfirm extends LitElement {
 	       };
    }
 
+   static get styles()
+   {
+	return css `:host{
+		position: absolute;
+    		top: 300px;
+    		left: 40%;
+		width:50%;
+    		transform: translate(-50%, -50%);
+		}`;
+   }	
+
    constructor() {
 
 		super();

@@ -57,7 +57,7 @@ class QuesoMain extends LitElement {
 					@info-cheese-store=${this.infoCheeseStore}
 				></queso-ficha>
 
-				<queso-confirm class="col-md-8 col-sm-10 mt-5  p-0 fixed-top"></queso-confirm>
+				<queso-confirm></queso-confirm>
 
 			</div>
 		</main>
